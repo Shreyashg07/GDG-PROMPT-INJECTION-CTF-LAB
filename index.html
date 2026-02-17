@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GDG AI Security Challenge</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="topbar">
+    <h1>
+    <span>G</span>
+    <span>D</span>
+    <span>G</span>
+    <span> AI Security Challenge</span>
+</h1>
+
+    <p>SecureCorp Internal Assistant – Prompt Injection CTF</p>
+</div>
+
+<div class="layout">
+
+    <!-- AI Console -->
+    <div class="console">
+        <div class="console-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title">AI Console</span>
+        </div>
+
+        <div id="chat-box" class="console-body"></div>
+
+        <div class="console-input">
+            <span class="prompt">></span>
+            <input type="text" id="user-input" placeholder="Enter command..." />
+            <button onclick="sendMessage()">Execute</button>
+        </div>
+    </div>
+
+    <!-- Flag Panel -->
+    <div class="flag-panel">
+        <h2>Submit Flag</h2>
+        <input type="text" id="flag-input" placeholder="GDG{...}" />
+        <button onclick="submitFlag()">Verify</button>
+        <p id="result"></p>
+    </div>
+
+</div>
+
+<script>
+async function sendMessage() {
+    let input = document.getElementById("user-input").value;
+    if (!input) return;
+
+    let response = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: input })
+    });
+
+    let data = await response.json();
+    let chatBox = document.getElementById("chat-box");
+
+    chatBox.innerHTML += `
+        <div class="command">> ${input}</div>
+        <div class="response">${data.reply}</div>
+    `;
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+    document.getElementById("user-input").value = "";
+}
+
+async function submitFlag() {
+    let flag = document.getElementById("flag-input").value;
+
+    let response = await fetch("/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ flag: flag })
+    });
+
+    let data = await response.json();
+    document.getElementById("result").innerText = data.status;
+}
+</script>
+
+</body>
+</html>
