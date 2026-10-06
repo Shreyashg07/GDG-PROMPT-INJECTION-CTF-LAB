@@ -10,7 +10,7 @@
 
 # 🛡️ [Prompt Injection CTF Room](https://github.com/Shreyashg07/GDG-PROMPT-INJECTION-CTF-LAB)
 
-### Google Developer Student Clubs — Symbiosis Skills and Professional University
+### Google Developer Student Clubs — Symbiosis Skills and Professional University 2025-2026
 
 **An interactive Capture The Flag laboratory for learning Prompt Injection and AI Security.**
 
@@ -406,7 +406,7 @@ If you found this CTF useful for learning AI security, consider giving the repos
 
 ### 🛡️ Prompt Injection CTF Room
 
-**Google Developer Student Clubs  
+**Google Developer Student Clubs   2025-2026
 Symbiosis Skills and Professional University**
 
 </div>
