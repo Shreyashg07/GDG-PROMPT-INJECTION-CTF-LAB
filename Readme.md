@@ -398,7 +398,7 @@ Cybersecurity Researcher • Bug Hunter • VAPT • DFIR
 
 # ⭐ Support
 
-If you found this CTF useful for learning AI security, consider giving the repository a ⭐.
+If you found this CTF useful for learning AI security, consider giving the repository a ⭐..
 
 <div align="center">
 
